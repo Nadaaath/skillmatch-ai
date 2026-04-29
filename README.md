@@ -1,0 +1,176 @@
+
+
+````markdown
+
+\# SkillMatch AI
+
+
+
+SkillMatch AI is a full-stack recruitment matching platform that helps compare candidate CVs with job requirements using AI-based similarity scoring.
+
+
+
+\## Features
+
+
+
+\- Candidate profile creation
+
+\- PDF CV upload
+
+\- Job profile creation
+
+\- AI-powered candidate-job matching
+
+\- Explainable matching score
+
+\- React frontend
+
+\- FastAPI backend
+
+\- SQLite database
+
+
+
+\## Tech Stack
+
+
+
+\### Backend
+
+\- Python
+
+\- FastAPI
+
+\- SQLAlchemy
+
+\- SQLite
+
+\- Sentence Transformers / BERT
+
+\- PDF text extraction
+
+
+
+\### Frontend
+
+\- React
+
+\- Vite
+
+\- JavaScript
+
+\- CSS
+
+
+
+\## Project Structure
+
+
+
+```text
+
+.
+
+├── Backend/
+
+│   ├── main.py
+
+│   ├── database.py
+
+│   ├── models.py
+
+│   ├── schemas.py
+
+│   ├── ai\_engine.py
+
+│   ├── ai\_engine\_bert.py
+
+│   ├── routes/
+
+│   ├── requirements.txt
+
+│   └── skillmatch.db
+
+│
+
+├── frontend/
+
+│   ├── src/
+
+│   ├── package.json
+
+│   └── vite.config.js
+
+│
+
+└── README.md
+
+````
+
+
+
+\## Run the Backend Locally
+
+
+
+```bash
+
+cd Backend
+
+python -m venv .venv
+
+.venv\\Scripts\\activate
+
+python -m pip install -r requirements.txt
+
+python -m uvicorn main:app --reload
+
+```
+
+
+
+Backend API documentation:
+
+
+
+```text
+
+http://localhost:8000/docs
+
+```
+
+
+
+\## Run the Frontend Locally
+
+
+
+Open another terminal:
+
+
+
+```bash
+
+cd frontend
+
+npm install
+
+npm run dev
+
+```
+
+
+
+Frontend:
+
+
+
+```text
+
+http://localhost:5173
+
+```
+
+
+
