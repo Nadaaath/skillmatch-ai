@@ -31,28 +31,8 @@ SkillMatch AI is a full-stack recruitment matching platform that compares candid
 - JavaScript
 - CSS
 
-## Project Structure
 
-```text
-.
-├── Backend/
-│   ├── main.py
-│   ├── database.py
-│   ├── models.py
-│   ├── schemas.py
-│   ├── ai_engine.py
-│   ├── ai_engine_bert.py
-│   ├── routes/
-│   ├── requirements.txt
-│   └── skillmatch.db
-│
-├── frontend/
-│   ├── src/
-│   ├── package.json
-│   └── vite.config.js
-│
-└── README.md
-Run the Backend Locally
+### Run the Backend Locally
 cd Backend
 python -m venv .venv
 .venv\Scripts\activate
@@ -62,7 +42,7 @@ python -m uvicorn main:app --reload
 Backend API documentation:
 
 http://localhost:8000/docs
-Run the Frontend Locally
+### Run the Frontend Locally
 
 Open another terminal:
 
