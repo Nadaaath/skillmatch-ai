@@ -1,28 +1,7 @@
-@import url("https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap");
+@import "tailwindcss";
 
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-  min-height: 100vh;
-  font-family: "Space Grotesk", "Segoe UI", sans-serif;
-  background: linear-gradient(180deg, #f8f1e8 0%, #f0e6d6 100%);
-  color: #201c1a;
-}
-
-#root {
-  min-height: 100vh;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-button {
-  font-family: inherit;
-}
+body { @apply bg-slate-50 text-slate-900; }
+.card { @apply bg-white rounded-2xl border border-slate-200 shadow-sm p-5; }
+.btn { @apply px-4 py-2 rounded-xl font-medium bg-indigo-600 text-white hover:bg-indigo-700 disabled:opacity-50; }
+.input { @apply w-full rounded-xl border border-slate-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500; }
+.badge { @apply inline-flex items-center rounded-full px-3 py-1 text-xs font-medium bg-slate-100 text-slate-700 mr-2 mb-2; }

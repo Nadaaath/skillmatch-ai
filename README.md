@@ -1,58 +1,88 @@
-# SkillMatch AI
+# SkillMatch AI Pro v2
 
-SkillMatch AI is a full-stack recruitment matching platform that compares candidate CVs with job requirements using AI-based similarity scoring.
+AI-powered recruitment and career guidance platform.
 
-## Features
+## Stack
 
-- Candidate profile creation
-- PDF CV upload
-- Job profile creation
-- AI-powered candidate-job matching
-- Explainable matching score
-- React frontend
+- React + Vite + Tailwind frontend
 - FastAPI backend
-- SQLite database
+- PostgreSQL database
+- JWT authentication + RBAC candidate/recruiter/admin
+- CV PDF parsing
+- Skill extraction
+- Hybrid matching engine
+- Skill-gap roadmap
+- LLM Career Agent with mock/OpenAI/Ollama mode
+- External Job Offer Analyzer with manual fallback
+- Docker Compose startup
 
-## Tech Stack
+## New in Pro v2
 
-### Backend
+### External Job Offer Analyzer
 
-- Python
-- FastAPI
-- SQLAlchemy
-- SQLite
-- Sentence Transformers / BERT
-- PDF text extraction
+Candidates and recruiters can paste a public job-offer URL or paste the job description manually. The backend tries a single respectful public-page extraction. If a site blocks extraction, requires login, or returns incomplete content, the user can paste the description manually.
 
-### Frontend
+The app then:
 
-- React
-- Vite
-- JavaScript
-- CSS
+- extracts job title/description when available
+- detects required skills
+- saves the offer
+- computes compatibility for the current candidate when possible
+- shows matched skills, missing skills, and roadmap
 
+Compliance note: the app does not scrape candidate profiles and does not automate LinkedIn activity. Manual fallback is the expected path for protected platforms.
 
-### Run the Backend Locally
-cd Backend
-python -m venv .venv
-.venv\Scripts\activate
-python -m pip install -r requirements.txt
-python -m uvicorn main:app --reload
+## Quick start
 
-Backend API documentation:
+```powershell
+Copy-Item .env.example .env
+docker compose down -v
+docker compose up --build
+```
 
-http://localhost:8000/docs
-### Run the Frontend Locally
+Frontend: http://localhost:5173  
+Backend docs: http://localhost:8000/docs
 
-Open another terminal:
+## Demo flow
 
-cd frontend
-npm install
-npm run dev
+1. Register as candidate.
+2. Upload a CV PDF.
+3. Seed demo jobs.
+4. Paste an external job link or job description in the Job Offer Analyzer.
+5. Check score, matched skills, missing skills, and roadmap.
+6. Ask the AI agent for match explanation/interview questions.
+7. Register as recruiter.
+8. Create/import offers and rank candidates.
 
-Frontend:
+## LLM options
 
-http://localhost:5173
-Notes
+Default mode is mock, so the app works without a paid key.
 
-The backend may take some time to start because the BERT/Sentence Transformer model is loaded for semantic matching.
+```env
+LLM_PROVIDER=mock
+```
+
+Ollama:
+
+```env
+LLM_PROVIDER=ollama
+OLLAMA_BASE_URL=http://host.docker.internal:11434
+OLLAMA_MODEL=mistral
+```
+
+OpenAI-compatible:
+
+```env
+LLM_PROVIDER=openai
+OPENAI_API_KEY=your_key
+OPENAI_BASE_URL=https://api.openai.com/v1
+OPENAI_MODEL=gpt-4o-mini
+```
+
+## Next upgrades
+
+- Qdrant vector database for RAG over CVs and job offers.
+- Real sentence-transformers embeddings.
+- Interview simulator with candidate answer + AI feedback.
+- GitHub Actions CI/CD.
+- Kubernetes Minikube manifests.
